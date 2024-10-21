@@ -38,4 +38,11 @@ public class LibroController {
     public void eliminarLibro(@PathVariable Long id) {
         libroService.eliminarLibro(id);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Libro> actualizarLibro(@PathVariable Long id, @RequestBody Libro libroDetalles) {
+        Optional<Libro> libroActualizado = libroService.actualizarLibro(id, libroDetalles);
+
+        return libroActualizado.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
