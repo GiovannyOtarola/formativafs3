@@ -13,7 +13,6 @@ import com.example.formativafs3.service.*;
 
 @RestController
 @RequestMapping("/api/libros")
-@CrossOrigin(origins = "http://localhost:4200")
 public class LibroController {
 
     @Autowired
